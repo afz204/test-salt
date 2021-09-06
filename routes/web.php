@@ -24,4 +24,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix' => 'product', 'middleware' => ['auth']], function() {
     Route::get('/{type}', [ProductController::class, 'index'])->name('product');
+    Route::post('/{type}', [ProductController::class, 'store'])->name('product.submit');
 });

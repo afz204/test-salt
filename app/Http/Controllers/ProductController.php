@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductFormRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,5 +24,10 @@ class ProductController extends Controller
     public function index() {
 
         return view('product', $this->data);
+    }
+
+    public function store(ProductFormRequest $request) {
+        $validate = $request->validated();
+        dd($validate);
     }
 }
